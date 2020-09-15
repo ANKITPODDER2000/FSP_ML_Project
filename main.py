@@ -36,24 +36,32 @@ train_data.head()
 train_data.drop("Name" , axis = 1 , inplace = True)
 
 sns.heatmap(train_data.isna())
+plt.show()
 
 train_data.drop("Cabin" , axis = 1 , inplace = True)
 
 sns.heatmap(train_data.isna())
+plt.show()
 
 plt.plot(train_data['Age'].dropna())
+plt.show()
 
 data = train_data[['Age' , 'Pclass']].dropna()
 
 sns.scatterplot(data = data , x = 'Pclass' , y = 'Age' , hue = 'Pclass' , cmap = "virdis")
+plt.show()
 
 sns.countplot(x = 'Pclass' , data = train_data)
+plt.show()
 
 sns.countplot(x = 'Survived' , data = train_data)
+plt.show()
 
 sns.countplot(x = 'Survived' , data = train_data , hue = "Pclass")
+plt.show()
 
 sns.countplot(x = 'Survived' , data = train_data , hue = "Sex")
+plt.show()
 
 avg_age_class1 = math.ceil(data[data['Pclass'] == 1]['Age'].mean())
 print("avg_age_class1 : ",avg_age_class1)
@@ -77,6 +85,7 @@ def updateAge(List):
 train_data['Age'] = train_data[['Age' , "Pclass"]].apply(updateAge , axis = 1)
 
 sns.heatmap(train_data.isna())
+plt.show()
 
 train_data.head(n = 3)
 
@@ -138,6 +147,7 @@ plt.plot(val_acc,'o--' , label = "testing_data")
 plt.ylabel("Accurecy")
 plt.xlabel("C->")
 plt.legend()
+plt.show()
 
 take_model = model["model_c_10"]['model']
 
